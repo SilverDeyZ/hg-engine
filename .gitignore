@@ -84,6 +84,9 @@ rom_gen*.ld
 .zed
 compile_commands.json
 CLAUDE.md
+.claude/
+.context/
+hgwiki/
 
 sdat/*
 *.swav
