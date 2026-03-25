@@ -1,4 +1,5 @@
 #include "../include/bag.h"
+#include "../include/save.h"
 #include "../include/battle.h"
 #include "../include/config.h"
 #include "../include/party_menu.h"
@@ -24,6 +25,30 @@ u32 LONG_CALL getButtonColorRaised(int selection);
 void LONG_CALL PartyMonContextMenuAction_RotomCatalog(struct PartyMenu *partyMenu, int *pState);
 void LONG_CALL PartyMonContextMenuAction_QuitToBag(struct PartyMenu *partyMenu, int *pState);
 static void PartyMenu_ShowRotomCatalogList(struct PartyMenu *partyMenu);
+
+#ifdef IMPLEMENT_HM_BADGE_CONFIG
+// Badge requirements indexed by (PartyMonContextMenuItem - PARTY_MON_CONTEXT_MENU_FIELD_MOVES_BEGIN).
+// 0xFF means no badge required (non-HM field moves).
+// Order matches the PartyMonContextMenuItem enum (CUT=0, FLY=1, ..., WHIRLPOOL=7, FLASH=8, ...).
+static const u8 sHMBadgeRequirements[] = {
+    HM01_CUT_BADGE,         // idx 0 — PARTY_MON_CONTEXT_MENU_CUT        (16)
+    HM02_FLY_BADGE,         // idx 1 — PARTY_MON_CONTEXT_MENU_FLY        (17)
+    HM03_SURF_BADGE,        // idx 2 — PARTY_MON_CONTEXT_MENU_SURF       (18)
+    HM04_STRENGTH_BADGE,    // idx 3 — PARTY_MON_CONTEXT_MENU_STRENGTH   (19)
+    HM06_ROCK_SMASH_BADGE,  // idx 4 — PARTY_MON_CONTEXT_MENU_ROCK_SMASH (20)
+    HM07_WATERFALL_BADGE,   // idx 5 — PARTY_MON_CONTEXT_MENU_WATERFALL  (21)
+    HM08_ROCK_CLIMB_BADGE,  // idx 6 — PARTY_MON_CONTEXT_MENU_ROCK_CLIMB (22)
+    HM05_WHIRLPOOL_BADGE,   // idx 7 — PARTY_MON_CONTEXT_MENU_WHIRLPOOL  (23)
+    0xFF,                   // idx 8 — PARTY_MON_CONTEXT_MENU_FLASH       (24) — no badge
+    0xFF,                   // idx 9 — PARTY_MON_CONTEXT_MENU_TELEPORT    (25) — no badge
+    0xFF,                   // idx 10 — PARTY_MON_CONTEXT_MENU_DIG        (26) — no badge
+    0xFF,                   // idx 11 — PARTY_MON_CONTEXT_MENU_SWEET_SCENT(27) — no badge
+    0xFF,                   // idx 12 — PARTY_MON_CONTEXT_MENU_CHATTER    (28) — no badge
+    0xFF,                   // idx 13 — PARTY_MON_CONTEXT_MENU_HEADBUTT   (29) — no badge
+    0xFF,                   // idx 14 — PARTY_MON_CONTEXT_MENU_MILK_DRINK (30) — no badge
+    0xFF,                   // idx 15 — PARTY_MON_CONTEXT_MENU_SOFTBOILED (31) — no badge
+};
+#endif
 
 u8 LONG_CALL sub_0207B0B0(struct PartyMenu *wk, u8 *buf)
 {
@@ -68,6 +93,25 @@ u8 LONG_CALL sub_0207B0B0(struct PartyMenu *wk, u8 *buf)
                 }
 
                 fieldEffect = MoveId_GetFieldEffectId(move);
+#ifdef IMPLEMENT_HM_BADGE_CONFIG
+                if (fieldEffect != 0xFF)
+                {
+                    u8 tableIdx = fieldEffect - PARTY_MON_CONTEXT_MENU_FIELD_MOVES_BEGIN;
+                    if (tableIdx < PARTY_MON_CONTEXT_MENU_FIELD_MOVES_COUNT)
+                    {
+                        u8 requiredBadge = sHMBadgeRequirements[tableIdx];
+                        if (requiredBadge != 0xFF)
+                        {
+                            struct PlayerProfile *profile = Sav2_PlayerData_GetProfileAddr(
+                                wk->args->fieldSystem->savedata);
+                            if (!PlayerProfile_TestBadgeFlag(profile, (s32)requiredBadge))
+                            {
+                                fieldEffect = 0xFF;
+                            }
+                        }
+                    }
+                }
+#endif
                 if (fieldEffect != 0xFF)
                 {
                     buf[count] = fieldEffect;

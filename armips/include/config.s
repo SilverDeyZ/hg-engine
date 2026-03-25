@@ -54,3 +54,19 @@ NO_PARTNER_DOUBLE_BATTLES equ 1
 // APPLY_ANTIPIRACY will apply the typical anti-piracy code changes to your ROM automatically so that the game runs well on hardware (TWLmenu and R4 are both tested)
 // comment out the lines if you do not want anti-piracy to be applied to your ROM
 .definelabel APPLY_ANTIPIRACY, 0
+
+// IMPLEMENT_HM_BADGE_CONFIG enables configurable badge requirements for HM field moves.
+// Set to 1 to enable; also set badge values below and enable in include/config.h.
+// Badge value reference: BADGE_ZEPHYR=0, BADGE_HIVE=1, BADGE_PLAIN=2, BADGE_FOG=3,
+//   BADGE_STORM=4, BADGE_MINERAL=5, BADGE_GLACIER=6, BADGE_RISING=7, ..., BADGE_EARTH=15
+// Vanilla values from pret/pokeheartgold/src/field_move.c are set as defaults below.
+IMPLEMENT_HM_BADGE_CONFIG equ 1
+
+HM01_CUT_BADGE         equ 1   // BADGE_HIVE    (Bugsy)  
+HM02_FLY_BADGE         equ 4   // BADGE_STORM   (Chuck)  
+HM03_SURF_BADGE        equ 3   // BADGE_FOG     (Morty)  
+HM04_STRENGTH_BADGE    equ 2   // BADGE_PLAIN   (Whitney)
+HM05_WHIRLPOOL_BADGE   equ 6   // BADGE_GLACIER (Pryce)  
+HM06_ROCK_SMASH_BADGE  equ 0   // BADGE_ZEPHYR  (Falkner)
+HM07_WATERFALL_BADGE   equ 7   // BADGE_RISING  (Clair)  
+HM08_ROCK_CLIMB_BADGE  equ 5   // BADGE_MINERAL (Jasmine) Replace Blue
