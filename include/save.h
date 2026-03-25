@@ -62,6 +62,11 @@ typedef struct APRICORN_TREE {
     u16 unk_2;
 } APRICORN_TREE;
 
+typedef struct SaveApricornBox SaveApricornBox;
+SaveApricornBox *LONG_CALL Save_ApricornBox_Get(void *saveData);
+int LONG_CALL ApricornBox_CountApricorn(SaveApricornBox *apricornBox, u32 apricornType);
+void LONG_CALL ApricornBox_GiveApricorn(SaveApricornBox *apricornBox, u16 apricornType, u8 quantity);
+
 typedef struct BerryPot {
     u8 berryId;
     u8 growthStage;

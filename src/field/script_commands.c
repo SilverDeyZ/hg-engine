@@ -318,6 +318,24 @@ BOOL ScrCmd_DaycareSanitizeMon(SCRIPTCONTEXT *ctx) {
     return FALSE;
 }
 
+BOOL ScrCmd_GiveApricornFromTree(SCRIPTCONTEXT *ctx)
+{
+    u16 apricornType = ScriptGetVar(ctx);  // arg0: apricorn type from tree
+    ScriptGetVar(ctx);                     // arg1: script quantity (ignored; config overrides)
+    u16 *retPtr = ScriptGetVarPointer(ctx); // arg2: success/failure result
+
+    SaveApricornBox *apricornBox = Save_ApricornBox_Get(ctx->fsys->savedata);
+    int current = ApricornBox_CountApricorn(apricornBox, apricornType);
+
+    if ((APRICORN_YIELD_PER_TREE + current) <= 99) {
+        ApricornBox_GiveApricorn(apricornBox, apricornType, APRICORN_YIELD_PER_TREE);
+        *retPtr = TRUE;
+    } else {
+        *retPtr = FALSE;
+    }
+    return FALSE;
+}
+
 // PC Anywhere custom block start
 
 void ClearOverworldRequestFlags(OVERWORLD_REQUEST_FLAGS *req)

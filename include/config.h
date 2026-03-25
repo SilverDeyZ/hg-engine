@@ -283,4 +283,7 @@
 // Default: 16 (all badges, same as vanilla). Lower to make gym leaders available earlier.
 #define GYM_LEADER_REMATCH_BADGE_THRESHOLD  16
 
+// Apricorn trees give this many apricorns per pickup. Vanilla is 1.
+#define APRICORN_YIELD_PER_TREE 3
+
 #endif

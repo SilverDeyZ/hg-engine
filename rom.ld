@@ -474,6 +474,9 @@ GF_ExpHeap_FndGetTotalFreeSize = 0x0201ABEC | 1;
 Link_CheckTimeout = 0x0224ED9C | 1;
 
 Save_Daycare_Get = 0x020293D4 | 1;
+Save_ApricornBox_Get = 0x02031B14 | 1;
+ApricornBox_CountApricorn = 0x02031BA4 | 1;
+ApricornBox_GiveApricorn = 0x02031B68 | 1;
 
 /* item use funcs */
 ItemFieldUseFunc_Generic = 0x02065150 | 1;

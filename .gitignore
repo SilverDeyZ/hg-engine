@@ -86,6 +86,7 @@ compile_commands.json
 CLAUDE.md
 .claude/
 .context/
+.mulch/
 hgwiki/
 
 sdat/*

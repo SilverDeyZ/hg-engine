@@ -183,6 +183,7 @@ arm9 GiveMon 020541DC 5
 
 arm9 ScrCmd_GiveEgg 0204D248 1
 0001 ScrCmd_GiveTogepiEgg 022020CC 1
+arm9 ScrCmd_GiveApricornFromTree 0204BD04 1
 arm9 sub_0206D328 0206D328 2
 
 #hof/pokeathlon/pokewalker fix
