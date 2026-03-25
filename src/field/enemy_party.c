@@ -504,6 +504,30 @@ BOOL LONG_CALL AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, s
 
     species = GetMonData(encounterPartyPokemon, MON_DATA_SPECIES, NULL);
 
+#ifdef IMPLEMENT_WILD_LEVEL_SCALING
+    {
+        struct PartyPokemon *lead = Party_GetMonByIndex(encounterBattleParam->poke_party[BATTLER_PLAYER], 0);
+        if (lead != NULL)
+        {
+            u8 leadLevel = (u8)GetMonData(lead, MON_DATA_LEVEL, NULL);
+            u8 scaledLevel = (u8)(((u32)encounterInfo->level + (u32)leadLevel) / 2);
+            if (scaledLevel < 1) scaledLevel = 1;
+
+            u32 growthrate = (u32)PokePersonalParaGet(species, PERSONAL_EXP_GROUP);
+            u32 scaledExp = (u32)GetExpByGrowthRateAndLevel((int)growthrate, (u32)scaledLevel);
+
+            // Set EXP first: hg-engine's GetMonData(MON_DATA_LEVEL) computes level from EXP,
+            // so this is the authoritative field for level queries.
+            SetMonData(encounterPartyPokemon, MON_DATA_EXPERIENCE, &scaledExp);
+            // Also update the cached party level field, which RecalcPartyPokemonStats reads directly.
+            SetMonData(encounterPartyPokemon, MON_DATA_LEVEL, &scaledLevel);
+            RecalcPartyPokemonStats(encounterPartyPokemon);
+
+            encounterInfo->level = scaledLevel;
+        }
+    }
+#endif
+
     if (space_for_setmondata != 0)
     {
         change_form = 1;
