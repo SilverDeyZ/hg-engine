@@ -251,4 +251,36 @@
 #define HM07_WATERFALL_BADGE    7   // BADGE_RISING  (Clair)   — vanilla
 #define HM08_ROCK_CLIMB_BADGE  5   // BADGE_MINERAL   (Jasmine)    — modded, replace Blue
 
+// IMPLEMENT_ANYTIME_PHONE_REMATCH replaces the vanilla phone-rematch gating system.
+//
+// Vanilla system requires:
+//   - FLAG_BEAT_RADIO_TOWER_ROCKETS to be set
+//   - a specific weekday and time of day (trainer-dependent)
+//   - an RNG roll to pass (chance field in the phone script table)
+//
+// This feature replaces those gates with a single Johto badge threshold.
+// Any trainer who gave their number can be rematched by calling them, once
+// the threshold is met. Day, time, and RNG restrictions are removed.
+//
+// Gym leader outgoing rematches are also upgraded: the 16-badge requirement
+// is replaced with GYM_LEADER_REMATCH_BADGE_THRESHOLD, and the weekday/time
+// gate in GearPhoneCall_GymLeader_Outgoing is bypassed.
+//
+// Requires corresponding entries in the hooks file (overlay 0101).
+// Comment out this define AND the hooks file entries to restore vanilla behavior.
+//
+// GiftItemIdGet guard omitted in v1: affects only trainers with a pending gift
+// item. SetSeeking is idempotent, so double-scheduling is harmless in practice.
+// Bug Contest exclusion omitted in v1: trainers may say "I'm still waiting"
+// during the Bug Contest; this affects dialogue only, not rematch activation.
+#define IMPLEMENT_ANYTIME_PHONE_REMATCH
+
+// Minimum number of Johto badges required for regular trainer rematches.
+// Range: 0-8. Default: 3 (Falkner, Bugsy, Whitney).
+#define PHONE_REMATCH_BADGE_THRESHOLD       3
+
+// Minimum total badges (Johto + Kanto) required for gym leader outgoing rematches.
+// Default: 16 (all badges, same as vanilla). Lower to make gym leaders available earlier.
+#define GYM_LEADER_REMATCH_BADGE_THRESHOLD  16
+
 #endif

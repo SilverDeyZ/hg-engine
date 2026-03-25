@@ -589,5 +589,19 @@ arm9 sub_0207E3A8 0207E3A8
 arm9 PartyMenu_StartContextMenuButtonPressAnim_FromCursorObj 0207CB9C 3
 0012 BattleContext_CheckMoveHealBlocked 02252DF8 1
 
+# anytime phone rematch (requires IMPLEMENT_ANYTIME_PHONE_REMATCH in include/config.h)
+# overlay_101 must be in OVERLAYS_TO_DECOMPRESS in scripts/make.py (added).
+# All addresses confirmed against decompressed overlay_0101.bin (load base 0x021E7740).
+# Register 2 is used for 2-argument functions to preserve r0=ctx and r1=hdr/state.
+#
+# Replaces PhoneScript_Generic_NoRematchUntilClearedRadioTower
+0101 PhoneRematch_GenericActivationGate 021F2CB8 2
+# Replaces PhoneScript_Generic_RematchAfterRadioTowerSpecificDayAndTime
+0101 PhoneRematch_GenericActivationGate 021F2D10 2
+# Replaces PhoneScript_Generic_RematchAfterRadioTowerExceptDuringBugContest
+0101 PhoneRematch_AlreadySeekingDialogue 021F2D48 2
+# Replaces PhoneCall_GetScriptId_GymLeader
+0101 PhoneRematch_GetScriptId_GymLeader 021F3EA8 2
+
 # determine rock smash table to use for items
 0001 DetermineRockSmashItem_hook 02204E28 1
