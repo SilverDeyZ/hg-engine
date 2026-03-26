@@ -27,6 +27,7 @@
 .include "armips/asm/hidden_items.s" // allows editing of hidden items for Dowsing Machine
 
 .include "armips/asm/no_partner_double_battles.s" // allows no partner double battles
+.include "armips/asm/radio_sound.s" // Hoenn/Sinnoh Sound: remove weekday+NatDex restriction, persist after battle
 
 .if FAIRY_TYPE_IMPLEMENTED == 1
 
