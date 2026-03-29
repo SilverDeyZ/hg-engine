@@ -88,6 +88,8 @@ CLAUDE.md
 .context/
 .mulch/
 hgwiki/
+bak/trainers.s.bak
+armips/data/trainers/trainers.s.bak
 
 sdat/*
 *.swav

@@ -1,0 +1,27 @@
+check_id,trainer_id,slot,status,species,issue
+V01,*,*,PASS,,trainer_party_index=1777 / final_replacements=1777 / final_movesets=1777
+V02,*,*,PASS,,all 1777 new_species symbols exist in mondata
+V03,*,*,PASS,,all move symbols valid; 0 slots have no learnset entry (cosmetic forms)
+V04,*,*,PASS,,all 186 mono-type-flagged slots carry the required specialty type
+V05,*,*,PASS,,all 186 replaced mono-specialist slots carry the required type
+V06,*,*,PASS,,all 0 same-category replacements stay within correct category
+V07,*,*,PASS,,all 1753 normal-pool replacements stay in normal category
+V08,*,*,PASS,,"24 unchanged slots, all reasons recognised: 20×no_candidates_in_pool; 1×source_not_in_pool; 1×no_candidates_for_specialty:PSYCHIC; 1×no_candidates_for_specialty:FIGHTING; 1×no_candidates_for_specialty:GHOST"
+V09,*,*,PASS,SPECIES_AZUMARILL,"types now frozenset({'FAIRY', 'WATER'}); 3 replaced, 0 unchanged — Fairy fix: should be WATER/FAIRY"
+V09,*,*,INFO,SPECIES_CLEFABLE,types=frozenset({'FAIRY'}); not used in any trainer party — Fairy fix: should be FAIRY/FAIRY
+V09,*,*,INFO,SPECIES_CLEFAIRY,types=frozenset({'FAIRY'}); not used in any trainer party — Fairy fix: should be FAIRY/FAIRY
+V09,*,*,PASS,SPECIES_DITTO,7 slot(s) correctly unchanged — expected unchanged: Ditto egg group has no other normal-pool members
+V09,*,*,PASS,SPECIES_EXEGGUTOR,1 slot(s) correctly unchanged — expected unchanged: no PSYCHIC-type candidate passes type+egg+BST
+V09,*,*,PASS,SPECIES_GARDEVOIR,"types now frozenset({'PSYCHIC', 'FAIRY'}); 3 replaced, 0 unchanged — Fairy fix: should be PSYCHIC/FAIRY"
+V09,*,*,PASS,SPECIES_GRANBULL,"types now frozenset({'FAIRY'}); 1 replaced, 0 unchanged — Fairy fix: should be FAIRY/FAIRY"
+V09,*,*,PASS,SPECIES_JIGGLYPUFF,"types now frozenset({'FAIRY', 'NORMAL'}); 1 replaced, 0 unchanged — Fairy fix: should be NORMAL/FAIRY"
+V09,*,*,PASS,SPECIES_MAGBY,1 slot(s) correctly unchanged — expected unchanged: Undiscovered egg group (baby Pokemon)
+V09,*,*,PASS,SPECIES_MARILL,"types now frozenset({'FAIRY', 'WATER'}); 1 replaced, 0 unchanged — Fairy fix: should be WATER/FAIRY"
+V09,*,*,PASS,SPECIES_MR_MIME,"types now frozenset({'PSYCHIC', 'FAIRY'}); 5 replaced, 0 unchanged — Fairy fix: should be PSYCHIC/FAIRY"
+V09,*,*,PASS,SPECIES_NIDOQUEEN,9 slot(s) correctly unchanged — expected unchanged: Undiscovered egg group
+V09,*,*,INFO,SPECIES_ONIX,6 slot(s) were replaced (pool may have expanded after fix); expected unchanged: no FIGHTING-type candidate passes type+egg+BST
+V09,*,*,PASS,SPECIES_PORYGON,"3 slot(s) correctly unchanged — expected unchanged: Mineral egg group, no NORMAL-type candidates"
+V09,*,*,PASS,SPECIES_SABLEYE,1 slot(s) correctly unchanged — expected unchanged: no GHOST-type candidate passes type+egg+BST
+V09,*,*,INFO,SPECIES_SNUBBULL,types=frozenset({'FAIRY'}); not used in any trainer party — Fairy fix: should be FAIRY/FAIRY
+V09,*,*,INFO,SPECIES_TOGEKISS,"types=frozenset({'FLYING', 'FAIRY'}); not used in any trainer party — Fairy fix: should be FAIRY/FLYING"
+V09,*,*,PASS,SPECIES_WIGGLYTUFF,"types now frozenset({'FAIRY', 'NORMAL'}); 3 replaced, 0 unchanged — Fairy fix: should be NORMAL/FAIRY"

@@ -277,7 +277,7 @@
 
 // Minimum number of Johto badges required for regular trainer rematches.
 // Range: 0-8. Default: 7
-#define PHONE_REMATCH_BADGE_THRESHOLD       7
+#define PHONE_REMATCH_BADGE_THRESHOLD       5
 
 // Minimum total badges (Johto + Kanto) required for gym leader outgoing rematches.
 // Default: 16 (all badges, same as vanilla). Lower to make gym leaders available earlier.
