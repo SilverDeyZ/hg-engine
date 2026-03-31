@@ -40,6 +40,12 @@
 .endif
 
 .include "armips/asm/render_3d_overworld.s" // 3D perspective camera + edge marking fix (controlled by RENDER_3D_OVERWORLD)
+.include "armips/asm/enable_surf_without_knowing_move.s"
+.include "armips/asm/encounter_rates.s"
+.include "armips/asm/remove_obedience_check.s"
+.include "armips/asm/roamers.s"
+.include "armips/asm/waterfall.s"
+
 
 // code addon list
 //.include "armips/data/hiddenabilities.s" // the hidden ability list, 7

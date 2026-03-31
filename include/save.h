@@ -84,6 +84,12 @@ typedef struct BerryPot {
 #define MAX_APRICORN_TREE 128
 #define NUM_APRICORN_TREE 31
 
+/* Apricorn box save API (arm9, addresses in rom.ld) */
+typedef struct SaveApricornBox SaveApricornBox;
+SaveApricornBox * LONG_CALL Save_ApricornBox_Get(void *saveData);
+int               LONG_CALL ApricornBox_CountApricorn(SaveApricornBox *apricornBox, u32 type);
+void              LONG_CALL ApricornBox_GiveApricorn(SaveApricornBox *apricornBox, u16 type, u8 n);
+
 #define MAX_BERRY_POT      4
 
 struct SAVE_MISC_DATA

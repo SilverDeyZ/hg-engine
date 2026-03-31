@@ -315,3 +315,30 @@ BOOL ScrCmd_DaycareSanitizeMon(SCRIPTCONTEXT *ctx) {
     }
     return FALSE;
 }
+
+/*
+ * ScrCmd_GiveApricornFromTree — opcode 625 override.
+ *
+ * Reads all three script operands (apricorn type, quantity, return var) to keep
+ * the script cursor aligned, then substitutes APRICORN_YIELD_PER_TREE for the
+ * vanilla quantity. If (yield + current_count) > 99 the full yield is rejected
+ * (vanilla cap behavior).
+ *
+ * Repointed via: arm9 ScrCmd_GiveApricornFromTree 020FB6C4
+ */
+BOOL ScrCmd_GiveApricornFromTree(SCRIPTCONTEXT *ctx)
+{
+    u16 apricornType = ScriptGetVar(ctx);       /* arg0: apricorn type from tree  */
+    ScriptGetVar(ctx);                          /* arg1: vanilla quantity — discard, use config */
+    u16 *retPtr = ScriptGetVarPointer(ctx);     /* arg2: return variable          */
+    SaveApricornBox *apricornBox = Save_ApricornBox_Get(ctx->fsys->savedata);
+    int currentCount = ApricornBox_CountApricorn(apricornBox, apricornType);
+
+    if ((APRICORN_YIELD_PER_TREE + currentCount) <= 99) {
+        ApricornBox_GiveApricorn(apricornBox, apricornType, APRICORN_YIELD_PER_TREE);
+        *retPtr = TRUE;
+    } else {
+        *retPtr = FALSE;
+    }
+    return FALSE;
+}

@@ -218,6 +218,12 @@
 // add or remove mythicals as you see fit
 #define VANILLA_MYTHICALS
 
+// APRICORN_YIELD_PER_TREE controls how many apricorns each tree gives per harvest.
+// Default is 1 (vanilla behavior). Increase to give more apricorns per pick.
+// Cap: the apricorn box holds 99 per type; if (yield + current) > 99 the player
+// receives nothing for that pick (vanilla behavior, applies to whole yield).
+#define APRICORN_YIELD_PER_TREE 3
+
 // IMPLEMENT_WILD_LEVEL_SCALING enables dynamic wild encounter level scaling.
 // When the lead party Pokemon's level is higher than the wild Pokemon's level,
 // the wild level becomes ceil((wildLevel + leadLevel) / 2).
