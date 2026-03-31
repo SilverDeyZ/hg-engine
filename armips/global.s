@@ -39,6 +39,8 @@
 
 .endif
 
+.include "armips/asm/render_3d_overworld.s" // 3D perspective camera + edge marking fix (controlled by RENDER_3D_OVERWORLD)
+
 // code addon list
 //.include "armips/data/hiddenabilities.s" // the hidden ability list, 7
 //.include "armips/data/baseexp.s" // the base experience list, 8
