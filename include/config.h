@@ -98,7 +98,7 @@
 
 // DISABLE_END_OF_TURN_WEATHER_MESSAGE removes the weather messages at the end of the turn.  instead the bottom screen icon can be used
 // uncomment the line out to get this functionality
-//#define DISABLE_END_OF_TURN_WEATHER_MESSAGE
+#define DISABLE_END_OF_TURN_WEATHER_MESSAGE
 
 // IMPLEMENT_SEASONS currently implements season mechanics. Used for changing forms of Deerling and Sawsbuck.
 // Comment the line out to disable this functionality (Gen 6+)
@@ -107,7 +107,7 @@
 // IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS allows wild species to appear with different forms if it has multiple forms.
 // Normally you will use monwithform, encounterwithform, headbuttencounterwithform to specify different forms (similar to Gen 5+)
 // Uncomment this line to enable this functionality
-// #define IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
+#define IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
 
 // Some forms only exist in their debut games, with accompying mechanics. IMPLEMENT_GONE_SPECIES_MECHANICS lets these forms' mechanics coexist with the latest mechanics. Examples include Noble Pokémon
 #define IMPLEMENT_DEXIT_FORMS_MECHANICS
@@ -119,7 +119,7 @@
 // SHINY_ODDS are the odds that a pokémon will be shiny.  actual odds are SHINY_ODDS over 65,536, by default 8 / 65536 or 1 / 8192
 // note that changing this still has no chance of spawning shiny mons in for trainers like the tutorial's method does
 // this will change existing mons too!  if you want to change the odds of wild mons only, you will have to add a certain amount of pid rerolls to the AddWildPartyPokemon routine
-#define SHINY_ODDS 8
+#define SHINY_ODDS 128
 
 // FRIENDSHIP_EVOLUTION_THRESHOLD defines the amount of friendship needed to evolve mons with friendship-related evolutions
 // modern generations have this value at 160, older ones at 220.  still max out at 255
@@ -160,13 +160,13 @@
 #define REUSABLE_TMS
 
 // DELETABLE_HMS allows HMs to be forgotten, this also makes their quantity reduce, but the infinite TMs change prevents this.
-//#define DELETABLE_HMS
+#define DELETABLE_HMS
 
 // MART_EXPANSION allows for adding and modifying items to the mart inventories
 #define MART_EXPANSION
 
 // POKEATHLON_EXPANSION allows for adding and modifying items to the Pokéathlon shop inventories
-//#define POKEATHLON_SHOP_EXPANSION
+#define POKEATHLON_SHOP_EXPANSION
 
 // STATIC_HP_BAR updates the HP bar to increase/decrease at a fixed rate like later generations
 #define STATIC_HP_BAR
