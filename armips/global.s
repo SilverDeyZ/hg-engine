@@ -40,6 +40,7 @@
 .endif
 
 .include "armips/asm/render_3d_overworld.s" // 3D perspective camera + edge marking fix (controlled by RENDER_3D_OVERWORLD)
+.include "armips/asm/hm_badge_config.s"    // configurable HM badge requirements (controlled by IMPLEMENT_HM_BADGE_CONFIG)
 .include "armips/asm/enable_surf_without_knowing_move.s"
 .include "armips/asm/encounter_rates.s"
 .include "armips/asm/remove_obedience_check.s"

@@ -218,6 +218,28 @@
 // add or remove mythicals as you see fit
 #define VANILLA_MYTHICALS
 
+// IMPLEMENT_HM_BADGE_CONFIG enables configurable badge requirements for HM field moves.
+// Each HM can be independently assigned any badge (0-15).
+// When enabled:
+//   Layer A (armips): the badge check constant inside each vanilla FieldMove_CheckXxx
+//            function is patched at build time to use the configured badge value.
+//   Layer B (C): the party menu context menu suppresses HM field moves until the required
+//            badge is held, so the move never appears before the gate is met.
+// Badge index reference:
+//   BADGE_ZEPHYR=0 (Falkner),  BADGE_HIVE=1 (Bugsy),    BADGE_PLAIN=2 (Whitney), BADGE_FOG=3 (Morty),
+//   BADGE_STORM=4 (Chuck),     BADGE_MINERAL=5 (Jasmine), BADGE_GLACIER=6 (Pryce), BADGE_RISING=7 (Clair),
+//   BADGE_BOULDER=8, BADGE_CASCADE=9, BADGE_THUNDER=10, BADGE_RAINBOW=11,
+//   BADGE_SOUL=12,  BADGE_MARSH=13,  BADGE_VOLCANO=14,  BADGE_EARTH=15 (Blue)
+#define IMPLEMENT_HM_BADGE_CONFIG
+#define HM01_CUT_BADGE         1   // BADGE_HIVE    (Bugsy)   — vanilla
+#define HM02_FLY_BADGE         4   // BADGE_STORM   (Chuck)   — vanilla
+#define HM03_SURF_BADGE        3   // BADGE_FOG     (Morty)   — vanilla
+#define HM04_STRENGTH_BADGE    2   // BADGE_PLAIN   (Whitney) — vanilla
+#define HM05_WHIRLPOOL_BADGE   6   // BADGE_GLACIER (Pryce)   — vanilla
+#define HM06_ROCK_SMASH_BADGE  0   // BADGE_ZEPHYR  (Falkner) — vanilla
+#define HM07_WATERFALL_BADGE   7   // BADGE_RISING  (Clair)   — vanilla
+#define HM08_ROCK_CLIMB_BADGE  5   // BADGE_MINERAL (Jasmine) — modded, replaces BADGE_EARTH (Blue)
+
 // APRICORN_YIELD_PER_TREE controls how many apricorns each tree gives per harvest.
 // Default is 1 (vanilla behavior). Increase to give more apricorns per pick.
 // Cap: the apricorn box holds 99 per type; if (yield + current) > 99 the player
