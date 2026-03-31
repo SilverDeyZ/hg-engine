@@ -218,4 +218,10 @@
 // add or remove mythicals as you see fit
 #define VANILLA_MYTHICALS
 
+// IMPLEMENT_WILD_LEVEL_SCALING enables dynamic wild encounter level scaling.
+// When the lead party Pokemon's level is higher than the wild Pokemon's level,
+// the wild level becomes ceil((wildLevel + leadLevel) / 2).
+// Wild levels are never reduced — if wild >= lead, the vanilla level is kept.
+#define IMPLEMENT_WILD_LEVEL_SCALING
+
 #endif

@@ -15,6 +15,7 @@
 #include "../../include/constants/moves.h"
 #include "../../include/constants/species.h"
 #include "../../include/constants/weather_numbers.h"
+#include "../../include/wild_level_scaling.h"
 
 #ifdef DEBUG_BATTLE_SCENARIOS
 #include "../../include/test_battle.h"
@@ -492,6 +493,19 @@ extern u32 space_for_setmondata;
  */
 BOOL LONG_CALL AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, struct PartyPokemon *encounterPartyPokemon, struct BATTLE_PARAM *encounterBattleParam)
 {
+#ifdef IMPLEMENT_WILD_LEVEL_SCALING
+    {
+        u8 scaledLevel = ApplyWildLevelScaling(encounterInfo->level, encounterBattleParam);
+        if (scaledLevel != encounterInfo->level) {
+            u16 wildSpecies = (u16)GetMonData(encounterPartyPokemon, MON_DATA_SPECIES, NULL);
+            u32 exp = PokeLevelExpGet(wildSpecies, scaledLevel);
+            SetMonData(encounterPartyPokemon, MON_DATA_EXPERIENCE, &exp);
+            RecalcPartyPokemonStats(encounterPartyPokemon);
+            encounterInfo->level = scaledLevel;
+        }
+    }
+#endif
+
     int range = 0;
     u8 change_form = 0;
     u8 form_no;
