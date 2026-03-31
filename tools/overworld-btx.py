@@ -264,9 +264,9 @@ def build_btx_from_png_and_mappings():
     write_field(btxFile, 0x10, TEXOffset, 4)
 
     # finally, convert all of the files and write them to the file
-    suffix = str(random.randint(0, 65535))
+    suffix = str(os.getpid()) + "_" + str(random.randint(0, 65535))
     while (os.path.exists(f"image-{suffix}.4bpp")):
-        suffix = str(random.randint(0, 65535))
+        suffix = str(os.getpid()) + "_" + str(random.randint(0, 65535))
     subprocess.run([GFX, pngFilename, f"image-{suffix}.4bpp", "-notiles"])
     btxFile.seek(textureOffset, 0)
     btxFile.write(open(f"image-{suffix}.4bpp", "rb").read())

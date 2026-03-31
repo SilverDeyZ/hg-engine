@@ -81,10 +81,36 @@
 // uncommenting IMPLEMENT_LEVEL_CAP enables the level cap system.  make sure to also uncomment LEVEL_CAP_VARIABLE in the process
 // uncommenting UNCAP_CANDIES_FROM_LEVEL_CAP will allow for rare candies to not be capped by the level cap even with the level cap in place, like run & bun
 // uncommenting ALLOW_LEVEL_CAP_EVOLVE will allow for rare candies to evolve pokemon already at the level cap that can evolve at that level already
-//#define IMPLEMENT_LEVEL_CAP
+#define IMPLEMENT_LEVEL_CAP
 //#define LEVEL_CAP_VARIABLE 0x416F
 //#define UNCAP_CANDIES_FROM_LEVEL_CAP
 //#define ALLOW_LEVEL_CAP_EVOLVE
+
+// IMPLEMENT_BADGE_PROGRESSIVE_LEVEL_CAP replaces the LEVEL_CAP_VARIABLE script-var source with a
+// badge-count-driven table.  When enabled, LEVEL_CAP_VARIABLE is ignored and the cap is read from
+// the table below based on how many total badges the player currently owns (0-16).
+// Requires IMPLEMENT_LEVEL_CAP to be enabled.
+#define IMPLEMENT_BADGE_PROGRESSIVE_LEVEL_CAP
+
+// Badge-count cap table.  LEVEL_CAP_BADGE_N is the cap when the player owns exactly N badges.
+// Values should be 1-100; out-of-range values fall back to 100.
+#define LEVEL_CAP_BADGE_0   13
+#define LEVEL_CAP_BADGE_1   17
+#define LEVEL_CAP_BADGE_2   19
+#define LEVEL_CAP_BADGE_3   25
+#define LEVEL_CAP_BADGE_4   31
+#define LEVEL_CAP_BADGE_5   35
+#define LEVEL_CAP_BADGE_6   38
+#define LEVEL_CAP_BADGE_7   41
+#define LEVEL_CAP_BADGE_8   50
+#define LEVEL_CAP_BADGE_9   53
+#define LEVEL_CAP_BADGE_10  55
+#define LEVEL_CAP_BADGE_11  57
+#define LEVEL_CAP_BADGE_12  60
+#define LEVEL_CAP_BADGE_13  63
+#define LEVEL_CAP_BADGE_14  66
+#define LEVEL_CAP_BADGE_15  70
+#define LEVEL_CAP_BADGE_16  100
 
 // System flags that need to be enabled for the player to use the gimmick. If you want to change them, remember to change them in flags.s as well for consistency
 #define FLAG_MEGA_EVOLUTION_ENABLED 2518

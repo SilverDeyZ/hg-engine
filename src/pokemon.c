@@ -2171,17 +2171,45 @@ u32 CheckCanUseBallOnDoublesFromBag(struct BattleStruct *sp)
     return TRUE;
 }
 
+#ifdef IMPLEMENT_BADGE_PROGRESSIVE_LEVEL_CAP
+static u32 GetBadgeProgressiveLevelCap(void)
+{
+    static const u8 sBadgeCaps[17] = {
+        LEVEL_CAP_BADGE_0,  LEVEL_CAP_BADGE_1,  LEVEL_CAP_BADGE_2,
+        LEVEL_CAP_BADGE_3,  LEVEL_CAP_BADGE_4,  LEVEL_CAP_BADGE_5,
+        LEVEL_CAP_BADGE_6,  LEVEL_CAP_BADGE_7,  LEVEL_CAP_BADGE_8,
+        LEVEL_CAP_BADGE_9,  LEVEL_CAP_BADGE_10, LEVEL_CAP_BADGE_11,
+        LEVEL_CAP_BADGE_12, LEVEL_CAP_BADGE_13, LEVEL_CAP_BADGE_14,
+        LEVEL_CAP_BADGE_15, LEVEL_CAP_BADGE_16,
+    };
+    struct PlayerProfile *profile = Sav2_PlayerData_GetProfileAddr(SaveBlock2_get());
+    u32 badgeCount = 0;
+    for (s32 i = 0; i < 16; i++) {
+        if (PlayerProfile_TestBadgeFlag(profile, i))
+            badgeCount++;
+    }
+    if (badgeCount > 16) badgeCount = 16;
+    u32 cap = sBadgeCaps[badgeCount];
+    if (cap == 0 || cap > 100) cap = 100;
+    return cap;
+}
+#endif // IMPLEMENT_BADGE_PROGRESSIVE_LEVEL_CAP
+
 /**
- *  @brief get level cap from the script variable defined by LEVEL_CAP_VARIABLE
+ *  @brief get level cap — either badge-count-driven or from LEVEL_CAP_VARIABLE
  *
- *  @return level cap from LEVEL_CAP_VARIABLE script variable or 100 if it's not set at all
+ *  @return active level cap, or 100 if level cap is disabled
  */
 u32 LONG_CALL GetLevelCap(void)
 {
 #ifdef IMPLEMENT_LEVEL_CAP
+#ifdef IMPLEMENT_BADGE_PROGRESSIVE_LEVEL_CAP
+    return GetBadgeProgressiveLevelCap();
+#else
     u32 levelCap = GetScriptVar(LEVEL_CAP_VARIABLE);
     if (levelCap > 100 || levelCap == 0) levelCap = 100;
     return levelCap;
+#endif // IMPLEMENT_BADGE_PROGRESSIVE_LEVEL_CAP
 #else
     return 100;
 #endif // IMPLEMENT_LEVEL_CAP
