@@ -88,6 +88,7 @@ claude.md
 .claude/
 .context/
 .mulch/
+.codex
 
 sdat/*
 *.swav
