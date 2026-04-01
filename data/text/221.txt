@@ -1,1 +1,3 @@
-Custom item description
+A spray-type medicine for treating\nwounds. It can be used to restore\n40 HP and cure any status condition. // 2558
+A spray-type medicine for treating\nwounds. It can be used to restore\n80 HP and cure any status condition. // 2559
+A spray-type medicine for treating\nwounds. It can be used to restore\n120 HP and cure any status condition. // 2560

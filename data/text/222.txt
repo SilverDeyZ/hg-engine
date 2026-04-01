@@ -2556,3 +2556,6 @@ Meteorite
 Scarlet Book
 Violet Book
 Briar’s Book
+Heal Potion
+Super Heal Pot.
+Hyper Heal Pot.

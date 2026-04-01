@@ -1,1 +1,3 @@
-a {COLOR 255}Custom Item{COLOR 0}
+{COLOR 255}Heal Potion{COLOR 0}
+{COLOR 255}Super Heal Potion{COLOR 0}
+{COLOR 255}Hyper Heal Potion{COLOR 0}

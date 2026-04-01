@@ -169,3 +169,15 @@ $(BATTLETESTS_BIN): $(BATTLETESTS_DEPENDENCIES) $(BATTLETESTS_TEST_FILES) $(BATT
 
 NARC_FILES += $(BATTLETESTS_BIN)
 REQUIRED_DIRECTORIES += $(BATTLETESTS_OUTPUT_DIR)
+
+BUG_CONTEST_ENCOUNTERS_TARGET := $(FILESYS)/data/mushi/mushi_encount.bin
+BUG_CONTEST_ENCOUNTERS_DEPENDENCIES := data/BugContestEncounters.c include/config.h
+BUG_CONTEST_ENCOUNTERS_OBJS := build/BugContestEncounters.o
+BUG_CONTEST_ENCOUNTERS_BIN := build/BugContestEncounters.bin
+
+$(BUG_CONTEST_ENCOUNTERS_BIN): data/BugContestEncounters.c include/config.h
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c data/BugContestEncounters.c -o $(BUG_CONTEST_ENCOUNTERS_OBJS)
+	$(OBJCOPY) -O binary $(BUG_CONTEST_ENCOUNTERS_OBJS) $@
+
+NARC_FILES += $(BUG_CONTEST_ENCOUNTERS_BIN)

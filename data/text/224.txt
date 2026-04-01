@@ -1,1 +1,3 @@
-{COLOR 255}Custom Items{COLOR 0}
+{COLOR 255}Heal Potions{COLOR 0}
+{COLOR 255}Super Heal Potions{COLOR 0}
+{COLOR 255}Hyper Heal Potions{COLOR 0}

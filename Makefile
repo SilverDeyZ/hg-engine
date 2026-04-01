@@ -406,6 +406,11 @@ move_narc: $(NARC_FILES)
 	@echo "wild encounters:"
 	cp $(ENCOUNTER_NARC) $(ENCOUNTER_TARGET)
 
+	@echo "bug contest encounters:"
+	@if [ $$(grep -c "^#define IMPLEMENT_BUG_CONTEST_ENCOUNTER_CONFIG" $(INCLUDE_SUBDIR)/config.h) -ne 0 ]; then \
+		cp $(BUG_CONTEST_ENCOUNTERS_BIN) $(BUG_CONTEST_ENCOUNTERS_TARGET); \
+	fi
+
 	@echo "pokemon overworlds:"
 	cp $(OVERWORLDS_NARC) $(OVERWORLDS_TARGET)
 

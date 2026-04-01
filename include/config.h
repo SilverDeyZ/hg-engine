@@ -260,20 +260,26 @@
 //   BADGE_BOULDER=8, BADGE_CASCADE=9, BADGE_THUNDER=10, BADGE_RAINBOW=11,
 //   BADGE_SOUL=12,  BADGE_MARSH=13,  BADGE_VOLCANO=14,  BADGE_EARTH=15 (Blue)
 #define IMPLEMENT_HM_BADGE_CONFIG
-#define HM01_CUT_BADGE         1   // BADGE_HIVE    (Bugsy)   — vanilla
-#define HM02_FLY_BADGE         4   // BADGE_STORM   (Chuck)   — vanilla
-#define HM03_SURF_BADGE        3   // BADGE_FOG     (Morty)   — vanilla
-#define HM04_STRENGTH_BADGE    2   // BADGE_PLAIN   (Whitney) — vanilla
-#define HM05_WHIRLPOOL_BADGE   6   // BADGE_GLACIER (Pryce)   — vanilla
-#define HM06_ROCK_SMASH_BADGE  0   // BADGE_ZEPHYR  (Falkner) — vanilla
-#define HM07_WATERFALL_BADGE   7   // BADGE_RISING  (Clair)   — vanilla
-#define HM08_ROCK_CLIMB_BADGE  5   // BADGE_MINERAL (Jasmine) — modded, replaces BADGE_EARTH (Blue)
+#define HM01_CUT_BADGE         1   // BADGE_HIVE        vanilla : BADGE_HIVE    (Bugsy)  
+#define HM02_FLY_BADGE         4   // BADGE_STORM       vanilla : BADGE_STORM   (Chuck)  
+#define HM03_SURF_BADGE        3   // BADGE_FOG         vanilla : BADGE_FOG     (Morty)  
+#define HM04_STRENGTH_BADGE    6   // BADGE_GLACIER     vanilla : BADGE_PLAIN   (Whitney)
+#define HM05_WHIRLPOOL_BADGE   5   // BADGE_MINERAL     vanilla : BADGE_GLACIER (Pryce)
+#define HM06_ROCK_SMASH_BADGE  0   // BADGE_ZEPHYR      vanilla : BADGE_ZEPHYR  (Falkner)
+#define HM07_WATERFALL_BADGE   7   // BADGE_RISING      vanilla : BADGE_RISING  (Clair)
+#define HM08_ROCK_CLIMB_BADGE  2   // BADGE_PLAIN       vanilla : BADGE_MINERAL (Blue)
 
 // APRICORN_YIELD_PER_TREE controls how many apricorns each tree gives per harvest.
 // Default is 1 (vanilla behavior). Increase to give more apricorns per pick.
 // Cap: the apricorn box holds 99 per type; if (yield + current) > 99 the player
 // receives nothing for that pick (vanilla behavior, applies to whole yield).
 #define APRICORN_YIELD_PER_TREE 3
+
+// IMPLEMENT_BUG_CONTEST_ENCOUNTER_CONFIG enables a standalone editable replacement for
+// Bug-Catching Contest encounter data. The table lives in data/BugContestEncounters.c and
+// mirrors the vanilla mushi_encount.bin row format: species, lvlmin, lvlmax, rate, score.
+// Comment this out to keep the ROM's original data/mushi/mushi_encount.bin untouched.
+#define IMPLEMENT_BUG_CONTEST_ENCOUNTER_CONFIG
 
 // IMPLEMENT_WILD_LEVEL_SCALING enables dynamic wild encounter level scaling.
 // When the lead party Pokemon's level is higher than the wild Pokemon's level,

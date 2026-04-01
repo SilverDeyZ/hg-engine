@@ -87,3 +87,28 @@ MOM_GIFT_CONFIG equ 0
 // Set to 1 to enable the redirect hook. The table itself lives in src/follow_mon_gift.c.
 // Any entry left as ITEM_NONE falls back to vanilla accessory behavior.
 FOLLOW_MON_GIFT_ITEM_REDIRECT equ 0
+
+// BUG_CONTEST_PRIZE_CONFIG enables a script-level remap of Bug-Catching Contest prizes.
+// Set to 1 to replace the vanilla awarded item after judging.
+// First place uses a two-round model controlled by BUG_CONTEST_ROUND_2_BADGE_COUNT:
+// if the player has fewer badges than that threshold, they receive the first-round prize;
+// otherwise, the second-round pool is used below.
+// Second, third, and consolation prizes are fixed single items.
+BUG_CONTEST_PRIZE_CONFIG equ 1
+
+BUG_CONTEST_ROUND_2_BADGE_COUNT equ 4
+BUG_CONTEST_FIRST_ROUND_PRIZE equ ITEM_SUN_STONE
+BUG_CONTEST_SECOND_ROUND_PRIZE_COUNT equ 10
+BUG_CONTEST_SECOND_ROUND_0_PRIZE equ ITEM_SUN_STONE
+BUG_CONTEST_SECOND_ROUND_1_PRIZE equ ITEM_MOON_STONE
+BUG_CONTEST_SECOND_ROUND_2_PRIZE equ ITEM_FIRE_STONE
+BUG_CONTEST_SECOND_ROUND_3_PRIZE equ ITEM_THUNDER_STONE
+BUG_CONTEST_SECOND_ROUND_4_PRIZE equ ITEM_WATER_STONE
+BUG_CONTEST_SECOND_ROUND_5_PRIZE equ ITEM_LEAF_STONE
+BUG_CONTEST_SECOND_ROUND_6_PRIZE equ ITEM_SHINY_STONE
+BUG_CONTEST_SECOND_ROUND_7_PRIZE equ ITEM_DUSK_STONE
+BUG_CONTEST_SECOND_ROUND_8_PRIZE equ ITEM_DAWN_STONE
+BUG_CONTEST_SECOND_ROUND_9_PRIZE equ ITEM_OVAL_STONE
+BUG_CONTEST_SECOND_PLACE_PRIZE equ ITEM_EVERSTONE
+BUG_CONTEST_THIRD_PLACE_PRIZE equ ITEM_SITRUS_BERRY
+BUG_CONTEST_CONSOLATION_PRIZE equ ITEM_SHED_SHELL
