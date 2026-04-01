@@ -83,8 +83,8 @@
 // uncommenting ALLOW_LEVEL_CAP_EVOLVE will allow for rare candies to evolve pokemon already at the level cap that can evolve at that level already
 #define IMPLEMENT_LEVEL_CAP
 //#define LEVEL_CAP_VARIABLE 0x416F
-//#define UNCAP_CANDIES_FROM_LEVEL_CAP
-//#define ALLOW_LEVEL_CAP_EVOLVE
+#define UNCAP_CANDIES_FROM_LEVEL_CAP
+#define ALLOW_LEVEL_CAP_EVOLVE
 
 // IMPLEMENT_BADGE_PROGRESSIVE_LEVEL_CAP replaces the LEVEL_CAP_VARIABLE script-var source with a
 // badge-count-driven table.  When enabled, LEVEL_CAP_VARIABLE is ignored and the cap is read from
@@ -178,6 +178,9 @@
 
 // UPDATE_VITAMIN_EV_CAPS changes the cap on the vitamins from 100 to 252 per recent generations
 #define UPDATE_VITAMIN_EV_CAPS
+
+// REMOVE_TOTAL_EV_CAP removes the 510 total EV limit, allowing all 6 stats to reach the per-stat maximum 255, to max total is 6*255=1530
+#define REMOVE_TOTAL_EV_CAP
 
 // DISABLE_ITEMS_IN_TRAINER_BATTLE will disable the usage of items in trainer battles. This is also true for the AI.
 //#define DISABLE_ITEMS_IN_TRAINER_BATTLE

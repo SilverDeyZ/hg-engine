@@ -1,6 +1,7 @@
 .include "armips/include/config.s"
 .include "armips/include/constants.s"
 .include "armips/include/generated/levelup.s"
+.include "armips/include/generated/symbols.s"
 
 // standard assembler includes
 .include "asm/include/abilities.inc"
@@ -41,6 +42,8 @@
 
 .include "armips/asm/render_3d_overworld.s" // 3D perspective camera + edge marking fix (controlled by RENDER_3D_OVERWORLD)
 .include "armips/asm/hm_badge_config.s"    // configurable HM badge requirements (controlled by IMPLEMENT_HM_BADGE_CONFIG)
+.include "armips/asm/mom_gift.s"          // configurable Mom shopping tables (controlled by MOM_GIFT_CONFIG)
+.include "armips/asm/follow_mon_gift_redirect.s" // configurable following-Pokemon accessory->item redirect
 .include "armips/asm/enable_surf_without_knowing_move.s"
 .include "armips/asm/encounter_rates.s"
 .include "armips/asm/remove_obedience_check.s"

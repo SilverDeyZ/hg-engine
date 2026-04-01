@@ -1857,8 +1857,8 @@ FLAG_UNK_9F2                                              equ 2546
 FLAG_UNK_9F3                                              equ 2547
 FLAG_UNK_9F4                                              equ 2548
 FLAG_UNK_9F5                                              equ 2549
-FLAG_UNK_9F6                                              equ 2550
-FLAG_UNK_9F7                                              equ 2551
+FLAG_UNK_9F6                                              equ 2550 // multiexp in violet city center
+FLAG_UNK_9F7                                              equ 2551 // egg received trainer school
 FLAG_UNK_9F8                                              equ 2552
 FLAG_UNK_9F9                                              equ 2553
 FLAG_UNK_9FA                                              equ 2554

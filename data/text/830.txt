@@ -15,7 +15,7 @@ A somewhat different Poké Ball that is\nmore effective when catching Pokémon\n
 A remedial Poké Ball that restores\nHP and eliminates status conditions\nfor a Pokémon caught with it.
 A somewhat different Poké Ball that\nis more effective at catching Pokémon\nwhen used first thing in a battle.
 A quite rare Poké Ball made to\ncommemorate a special occasion of\nsome sort.
-A spray-type medicine for treating\nwounds. It can be used to restore\n20 HP to a Pokémon.
+A spray-type medicine for treating\nwounds. It can be used to restore\n30 HP to a Pokémon.
 A spray-type medicine for poisoning.\nIt can be used once to lift the effects\nof being poisoned from a Pokémon.
 A spray-type medicine for treating\nburns. It can be used to cure a\nPokémon suffering from a burn.
 A spray-type medicine for treating\nfreezing. It can be used to thaw out\na Pokémon that has been frozen solid.

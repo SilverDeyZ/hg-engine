@@ -76,3 +76,14 @@ HM05_WHIRLPOOL_BADGE  equ 6   // BADGE_GLACIER (Pryce)   — vanilla
 HM06_ROCK_SMASH_BADGE equ 0   // BADGE_ZEPHYR  (Falkner) — vanilla
 HM07_WATERFALL_BADGE  equ 7   // BADGE_RISING  (Clair)   — vanilla
 HM08_ROCK_CLIMB_BADGE equ 5   // BADGE_MINERAL (Jasmine) — modded, replaces BADGE_EARTH (Blue)
+
+// MOM_GIFT_CONFIG enables configurable Mom shopping tables (normal gifts and berry gifts).
+// Set to 1 to enable; configure item IDs, thresholds, and costs in armips/asm/mom_gift.s.
+// Set to 0 to leave vanilla ROM data untouched.
+MOM_GIFT_CONFIG equ 0
+
+// FOLLOW_MON_GIFT_ITEM_REDIRECT enables a following-Pokemon gift hook that can redirect
+// accessory rewards into bag items via a configurable accessory->item table.
+// Set to 1 to enable the redirect hook. The table itself lives in src/follow_mon_gift.c.
+// Any entry left as ITEM_NONE falls back to vanilla accessory behavior.
+FOLLOW_MON_GIFT_ITEM_REDIRECT equ 0

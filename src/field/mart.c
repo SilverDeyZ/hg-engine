@@ -29,7 +29,7 @@ const struct BadgeMartItems sBadgeMart[] = {
     { ITEM_TIMER_BALL,     5 },
     { ITEM_LUXURY_BALL,    3 },
     { ITEM_DUSK_BALL,      4 },
-    { ITEM_HEAL_BALL,      0 },
+    { ITEM_HEAL_BALL,      1 },
     { ITEM_QUICK_BALL,     6 },
     { ITEM_POTION,         0 },
     { ITEM_SUPER_POTION,   1 },
@@ -63,7 +63,7 @@ const struct BadgeMartItems sBadgeMart[] = {
 void LONG_CALL InitMartUI(void *taskManager, FieldSystem *fieldSystem, const u16 *items, int kind, int buySell, int decoWhich, const struct MartItem *priceOverrides);
 
 u16 sCherrygroveCityMart[] = {
-    ITEM_BLOOM_MAIL, ITEM_CHERI_BERRY, 0xFFFF
+    ITEM_BLOOM_MAIL, ITEM_HEAL_BALL, 0xFFFF
 };
 
 u16 sVioletCityMart[] = {
@@ -71,7 +71,7 @@ u16 sVioletCityMart[] = {
 };
 
 u16 sAzaleaCityMart[] = {
-    ITEM_GRASS_MAIL, ITEM_PECHA_BERRY, ITEM_TAMATO_BERRY, 0xFFFF
+    ITEM_GRASS_MAIL, ITEM_PECHA_BERRY, ITEM_CHERI_BERRY, 0xFFFF
 };
 
 u16 sGoldenrodDepartmentUpper2F[] = {

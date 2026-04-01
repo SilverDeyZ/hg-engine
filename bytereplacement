@@ -409,6 +409,19 @@ arm9 0204B94C FC
 0012 0224655C FC
 0012 02246560 FC
 
+#ifdef REMOVE_TOTAL_EV_CAP
+
+# remove 510 total EV cap - all 6 stats can now reach the per-stat maximum (1530 = 6x255)
+# patches the 510 literal pool entries (0x01FE) to 1530 (0x05FA) in three enforcement points:
+#   CanUseItemOnPokemon - determines if an EV item can be used on a mon
+#   TryModEV            - applies the EV change and clamps the result
+#   battle EV gain      - post-battle EV yield application
+arm9 020902B4 FA 05 00 00
+arm9 02090AD8 FA 05 00 00
+arm9 0204B9FC FA 05 00 00
+
+#endif
+
 # MainMusicComboTable combo range
 arm9 080517AA 2D
 arm9 080517D4 2D
